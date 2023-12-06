@@ -1,0 +1,103 @@
+.title-display{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px; 
+}
+.title-display button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgb(0, 217, 255);
+    color: rgb(8, 8, 8);
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.title-display button:hover {
+    background-color: rgb(0, 128, 17);
+  }
+form {
+    background-color: white;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.196);
+  }
+  
+  form h1 {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 40px;
+  }
+  
+  .caption {
+    font-size: 16px;
+    color: rgb(163, 163, 163);
+    margin-bottom: 30px;
+  }
+  
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .input-section input,
+  .input-section select {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    outline: none;
+  }
+  
+  .input-section input:focus {
+    border-bottom: 1px solid black;
+  }
+  
+  .input-section select {
+    border: 1px solid #ccc;
+  }
+  
+  .input-section label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .radio-groups label {
+    margin: 0 5px;
+    font-size: 16px;
+  }
+  
+  .dropdown-section label,
+  .radio-groups label {
+    margin-bottom: 12px;
+  }
+  
+  .radio-groups .radio-buttons {
+    font-weight: normal;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    background-color: rgb(0, 225, 255);
+    color: rgb(8, 8, 8);
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  form button:hover {
+    background-color: rgb(0, 128, 38);
+  }
+  
+  .danger {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
