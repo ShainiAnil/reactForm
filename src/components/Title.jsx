@@ -4,7 +4,7 @@ const Title = () => {
     
     useEffect(()=>{
       let interval = setInterval(()=>{
-        console.log("Fetching Api...");
+        //console.log("Fetching Api...");
       },1000)
      
         return()=>{
