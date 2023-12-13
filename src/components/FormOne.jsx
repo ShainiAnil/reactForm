@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { TextInput } from "./TextInput/TextInput";
+import { RadioButton } from "./RadioButton/RadioButton";
 const FormOne = () => {
   const [fields, setFields] = useState({
     firstName: "",
@@ -10,8 +11,6 @@ const FormOne = () => {
     country: "",
     skills: [],
   });
-  const [currentDate, setCurrentDate] = useState("");
-
   const [errorFields, setErrorFields] = useState({
     firstName: false,
     email: false,
@@ -22,13 +21,12 @@ const FormOne = () => {
   });
 
   const handleChange = (event) => {
+    console.log("hi");
     setFields((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
   };
-
-  const current = new Date();
 
   const handleCheckbox = (event) => {
     let newSkills = [...fields.skills];
@@ -113,6 +111,7 @@ const FormOne = () => {
       <form autoComplete="off" onSubmit={handleSubmit} noValidate>
         <h1>Register</h1>
         <p className="caption">Please fill the form.</p>
+
         <TextInput
           handleChange={handleChange}
           errorFields={errorFields}
@@ -121,6 +120,7 @@ const FormOne = () => {
           name="firstName"
           type="text"
         />
+
         <TextInput
           handleChange={handleChange}
           errorFields={errorFields}
@@ -130,48 +130,31 @@ const FormOne = () => {
           type="email"
         />
 
+        <TextInput
+          handleChange={handleChange}
+          errorFields={errorFields}
+          label="Date Of Birth"
+          id="dob"
+          name="dob"
+          type="date"
+        />
         <div className="input-section radio-groups">
-          <label htmlFor="">
+          <label htmlFor="gender">
             Gender <span className="danger">*</span>
           </label>
           <div>
-            <input
-              type="radio"
+            <RadioButton
               name="gender"
-              value="male"
-              id="male"
-              onChange={handleChange}
+              label="male"
+              handleChange={handleChange}
             />
-            <label htmlFor="male" className="radio-buttons">
-              Male
-            </label>
-            <input
-              type="radio"
+            <RadioButton
               name="gender"
-              value="female"
-              id="female"
-              onChange={handleChange}
+              label="female"
+              handleChange={handleChange}
             />
-            <label htmlFor="female" className="radio-buttons">
-              Female
-            </label>
             {errorFields.gender && <p className="danger">Gender is required</p>}
           </div>
-        </div>
-        <div className="input-section input-date">
-          <label htmlFor="dob">
-            Date Of Birth <span className="danger">*</span>
-          </label>
-          <input
-            type="date"
-            id="dob"
-            name="dob"
-            min="1940-01-01"
-            onChange={handleChange}
-          />
-          {errorFields.dob && (
-            <p className="danger">Date of Birth is required</p>
-          )}
         </div>
         <div className="input-section dropdown-section">
           <label htmlFor="country">

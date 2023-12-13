@@ -83,7 +83,7 @@ const FormTwo = () => {
   return (
     <Fragment>
       <form autoComplete="off" onSubmit={handleSubmit} noValidate>
-        <h1>Register2</h1>
+        <h1>Sign Up</h1>
         <p className="caption">Please fill the form.</p>
         <div className="input-section">
           <label htmlFor="first-name">

@@ -6,8 +6,8 @@ export const TextInput = ({
   label,
   id,
   name,
-  type,
-  children,
+  type
+ 
 }) => {
   return (
     <div className="input-section">
@@ -16,7 +16,7 @@ export const TextInput = ({
       </label>
       <input type={type} id={id} name={name} onChange={handleChange} />
       {errorFields[name] && <p className="danger">{label} is required</p>}
-      {children}
+      {/* {children} */}
     </div>
   );
 };
