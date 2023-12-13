@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { TextInput } from "./TextInput/TextInput";
-import { RadioButton } from "./RadioButton/RadioButton";
+
+import { Select } from "./Select/Select";
+import { Radio } from "./Radio/Radio";
+
+const countries = ["UAE", "India", "Qatar"]
+const skills = ["Javascript", "React", "Angular"]
+const gender = ["Male", "Female"]
 const FormOne = () => {
   const [fields, setFields] = useState({
     firstName: "",
@@ -45,7 +51,7 @@ const FormOne = () => {
     event.preventDefault();
 
     if (isFormValid()) {
-      console.log("valid");
+      console.log("valid",fields);
       alert("Submitted!");
       return;
     }
@@ -138,74 +144,29 @@ const FormOne = () => {
           name="dob"
           type="date"
         />
-        <div className="input-section radio-groups">
-          <label htmlFor="gender">
-            Gender <span className="danger">*</span>
-          </label>
-          <div>
-            <RadioButton
-              name="gender"
-              label="male"
-              handleChange={handleChange}
-            />
-            <RadioButton
-              name="gender"
-              label="female"
-              handleChange={handleChange}
-            />
-            {errorFields.gender && <p className="danger">Gender is required</p>}
-          </div>
-        </div>
-        <div className="input-section dropdown-section">
-          <label htmlFor="country">
-            Country <span className="danger">*</span>
-          </label>
-          <select name="country" id="country" onChange={handleChange}>
-            <option value="">Select</option>
-            <option value="uae">UAE</option>
-            <option value="india">India</option>
-            <option value="qatar">Qatar</option>
-          </select>
-          {errorFields.country && <p className="danger">Country is required</p>}
-        </div>
-        <div className="input-section radio-groups">
-          <label htmlFor="skills">
-            Skills <span className="danger">*</span>
-          </label>
-          <div>
-            <input
-              type="checkbox"
-              name="skills"
-              value="javascript"
-              id="javascript"
-              onChange={handleCheckbox}
-            />
-            <label htmlFor="javascript" className="radio-buttons">
-              Javascript
-            </label>
-            <input
-              type="checkbox"
-              name="skills"
-              value="React"
-              id="react"
-              onChange={handleCheckbox}
-            />
-            <label htmlFor="react" className="radio-buttons">
-              React
-            </label>
-            <input
-              type="checkbox"
-              name="skills"
-              value="Angular"
-              id="angular"
-              onChange={handleCheckbox}
-            />
-            <label htmlFor="angular" className="radio-buttons">
-              Angular
-            </label>
-            {errorFields.skills && <p className="danger">Skills required</p>}
-          </div>
-        </div>
+        <Radio 
+           type = "radio"
+           label= "gender"
+           name = "gender"
+           options = {gender}
+           handleCheckbox = {handleChange}
+           errorFields = {errorFields}
+        />
+
+        <Select 
+          label = "country"
+          countries = {countries}
+          handleChange = {handleChange}
+          errorFields={errorFields}
+        />
+       <Radio
+          type = "checkbox"
+          label= "skills"
+          name = "skills"
+          options = {skills}
+          handleCheckbox = {handleCheckbox}
+          errorFields = {errorFields}
+        />
 
         <button type="submit">Submit</button>
       </form>
